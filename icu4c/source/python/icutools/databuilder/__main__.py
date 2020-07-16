@@ -15,7 +15,7 @@ import sys
 from . import *
 from .comment_stripper import CommentStripper
 from .request_types import CopyRequest
-from .renderers import makefile, common_exec
+from .renderers import makefile, common_exec, cmake
 from . import filtration, utils
 
 flag_parser = argparse.ArgumentParser(
@@ -63,7 +63,7 @@ arg_group_required = flag_parser.add_argument_group("required arguments")
 arg_group_required.add_argument(
     "--mode",
     help = "What to do with the generated rules.",
-    choices = ["gnumake", "unix-exec", "windows-exec", "bazel-exec"],
+    choices = ["gnumake", "unix-exec", "windows-exec", "bazel-exec", "cmake"],
     required = True
 )
 
@@ -351,6 +351,14 @@ def main(argv):
             tool_dir = args.tool_dir,
             verbose = args.verbose,
         )
+    elif args.mode == "cmake":
+        print(cmake.get_cmake_rules(
+            build_dirs,
+            requests,
+            common_vars = common,
+            tool_dir = args.tool_dir,
+            verbose = args.verbose,
+        ))
     else:
         print("Mode not supported: %s" % args.mode)
         return 1

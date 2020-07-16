@@ -1,0 +1,55 @@
+# Copyright (c) 2020, Sony Interactive Entertainment, Inc.
+# Copyright (c) 2018, NikitaFeodonit. All rights reserved.
+#
+## ICU build file for CMake build tools
+
+set(exe_NAME icuinfo)
+
+add_executable(${exe_NAME} "")
+
+### Common executables options
+include(${PROJECT_SOURCE_DIR}/common_tools_exe_flags.cmake)
+include(${PROJECT_SOURCE_DIR}/common_tools_exe_libs.cmake)
+
+### Executable's specifics
+
+### Include directories
+# PRIVATE
+target_include_directories(${exe_NAME} PRIVATE
+  ${PROJECT_SOURCE_DIR}/common
+  ${PROJECT_SOURCE_DIR}/tools/toolutil
+  ${PROJECT_SOURCE_DIR}/tools/ctestfw
+  ${PROJECT_SOURCE_DIR}/i18n
+)
+
+setup_icu_target("${exe_NAME}" "${CMAKE_CURRENT_LIST_DIR}/sources.lst" "${CMAKE_CURRENT_LIST_DIR}")
+
+install(
+  TARGETS ${exe_NAME}
+  EXPORT "${TARGETS_EXPORT_NAME}"
+  ARCHIVE  DESTINATION "${libdir}"
+  LIBRARY  DESTINATION "${libdir}"
+  RUNTIME  DESTINATION "${bindir}"
+  INCLUDES DESTINATION "${includedir}"
+)
+
+# TODO: fix plugin
+if (ICU_ENABLE_PLUGINS)
+  set(plugin_NAME plugin)
+  add_library(${plugin_NAME} SHARED "")
+  target_include_directories(${plugin_NAME} PRIVATE
+    ${PROJECT_SOURCE_DIR}/common
+    ${PROJECT_SOURCE_DIR}/tools/toolutil
+    ${PROJECT_SOURCE_DIR}/tools/ctestfw
+    ${PROJECT_SOURCE_DIR}/i18n
+  )
+  setup_icu_target("${plugin_NAME}" "${CMAKE_CURRENT_LIST_DIR}/plugin_sources.lst" "${CMAKE_CURRENT_LIST_DIR}")
+  install(
+    TARGETS ${plugin_NAME}
+    EXPORT "${TARGETS_EXPORT_NAME}"
+    ARCHIVE  DESTINATION "${libdir}"
+    LIBRARY  DESTINATION "${libdir}"
+    RUNTIME  DESTINATION "${bindir}"
+    INCLUDES DESTINATION "${includedir}"
+  )
+endif()
