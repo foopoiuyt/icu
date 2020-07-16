@@ -29,7 +29,7 @@ target_link_libraries(${exe_NAME} PRIVATE ${ICULIBS_CTESTFW})
 # Common libs must be after the ${ICULIBS_CTESTFW}
 include(${PROJECT_SOURCE_DIR}/common_tools_exe_libs.cmake)
 
-setup_icu_target("${exe_NAME}" "${CMAKE_CURRENT_LIST_DIR}/sources.lst" "${CMAKE_CURRENT_LIST_DIR}")
+setup_icu_target("${exe_NAME}" "${CMAKE_CURRENT_LIST_DIR}/sources.txt" "${CMAKE_CURRENT_LIST_DIR}")
 
 install(
   TARGETS ${exe_NAME}

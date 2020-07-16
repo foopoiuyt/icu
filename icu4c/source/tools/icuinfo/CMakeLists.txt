@@ -22,7 +22,7 @@ target_include_directories(${exe_NAME} PRIVATE
   ${PROJECT_SOURCE_DIR}/i18n
 )
 
-setup_icu_target("${exe_NAME}" "${CMAKE_CURRENT_LIST_DIR}/sources.lst" "${CMAKE_CURRENT_LIST_DIR}")
+setup_icu_target("${exe_NAME}" "${CMAKE_CURRENT_LIST_DIR}/sources.txt" "${CMAKE_CURRENT_LIST_DIR}")
 
 install(
   TARGETS ${exe_NAME}
@@ -43,7 +43,7 @@ if (ICU_ENABLE_PLUGINS)
     ${PROJECT_SOURCE_DIR}/tools/ctestfw
     ${PROJECT_SOURCE_DIR}/i18n
   )
-  setup_icu_target("${plugin_NAME}" "${CMAKE_CURRENT_LIST_DIR}/plugin_sources.lst" "${CMAKE_CURRENT_LIST_DIR}")
+  setup_icu_target("${plugin_NAME}" "${CMAKE_CURRENT_LIST_DIR}/plugin_sources.txt" "${CMAKE_CURRENT_LIST_DIR}")
   install(
     TARGETS ${plugin_NAME}
     EXPORT "${TARGETS_EXPORT_NAME}"

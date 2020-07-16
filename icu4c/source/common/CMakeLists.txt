@@ -83,7 +83,7 @@ endif()
 # After ICULIBS_DT or ICULIBS_STUBDT
 target_link_libraries(${lib_NAME} PUBLIC ${DEFAULT_LIBS})
 
-setup_icu_lib_target("${lib_NAME}" "${private_src_DIR}/sources.lst" "${private_src_DIR}" "${public_src_DIR}")
+setup_icu_lib_target("${lib_NAME}" "${private_src_DIR}/sources.txt" "${private_src_DIR}" "${public_src_DIR}")
 
 install(
   FILES ${${lib_NAME}_PUBLIC_HEADERS}

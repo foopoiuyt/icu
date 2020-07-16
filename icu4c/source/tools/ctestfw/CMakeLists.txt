@@ -54,7 +54,7 @@ target_include_directories(${lib_NAME} PRIVATE
 # LIBS = $(LIBICUTOOLUTIL) $(LIBICUI18N) $(LIBICUUC) $(DEFAULT_LIBS)
 target_link_libraries(${lib_NAME} PUBLIC ${ICULIBS_TOOLUTIL})
 
-setup_icu_lib_target("${lib_NAME}" "${private_src_DIR}/sources.lst" "${private_src_DIR}" "${public_src_DIR}")
+setup_icu_lib_target("${lib_NAME}" "${private_src_DIR}/sources.txt" "${private_src_DIR}" "${public_src_DIR}")
 
 install(
   TARGETS ${lib_NAME}

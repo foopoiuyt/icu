@@ -49,7 +49,7 @@ foreach(exe_NAME ${GENRB_TARGETS})
   if(exe_NAME STREQUAL "derb")
     target_sources(derb PRIVATE ${CMAKE_CURRENT_LIST_DIR}/derb.cpp)
   else()
-    setup_icu_target("${exe_NAME}" "${CMAKE_CURRENT_LIST_DIR}/sources.lst" "${CMAKE_CURRENT_LIST_DIR}")
+    setup_icu_target("${exe_NAME}" "${CMAKE_CURRENT_LIST_DIR}/sources.txt" "${CMAKE_CURRENT_LIST_DIR}")
   endif()
 
   install(

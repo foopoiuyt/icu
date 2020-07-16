@@ -21,7 +21,7 @@ target_include_directories(${exe_NAME} PRIVATE
   ${PROJECT_SOURCE_DIR}/tools/toolutil
 )
 
-setup_icu_target("${exe_NAME}" "${CMAKE_CURRENT_LIST_DIR}/sources.lst" "${CMAKE_CURRENT_LIST_DIR}")
+setup_icu_target("${exe_NAME}" "${CMAKE_CURRENT_LIST_DIR}/sources.txt" "${CMAKE_CURRENT_LIST_DIR}")
 
 install(
   TARGETS ${exe_NAME}

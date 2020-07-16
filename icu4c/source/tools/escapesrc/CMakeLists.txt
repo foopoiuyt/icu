@@ -27,7 +27,7 @@ target_include_directories(${exe_NAME} PRIVATE
 #LIBS += $(DEFAULT_LIBS) $(LIB_M)
 target_link_libraries(${exe_NAME} PRIVATE ${DEFAULT_LIBS} ${LIB_M})
 
-setup_icu_target("${exe_NAME}" "${CMAKE_CURRENT_LIST_DIR}/sources.lst" "${CMAKE_CURRENT_LIST_DIR}")
+setup_icu_target("${exe_NAME}" "${CMAKE_CURRENT_LIST_DIR}/sources.txt" "${CMAKE_CURRENT_LIST_DIR}")
 
 install(
   TARGETS ${exe_NAME}

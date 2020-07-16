@@ -40,7 +40,7 @@ target_include_directories(${lib_NAME} PRIVATE
   ${PROJECT_SOURCE_DIR}/common
 )
 
-setup_icu_target("${lib_NAME}" "${CMAKE_CURRENT_LIST_DIR}/sources.lst" "${CMAKE_CURRENT_LIST_DIR}")
+setup_icu_target("${lib_NAME}" "${CMAKE_CURRENT_LIST_DIR}/sources.txt" "${CMAKE_CURRENT_LIST_DIR}")
 
 if(CMAKE_HOST_WIN32 AND BUILD_SHARED_LIBS AND (MSVC OR MINGW))
   add_custom_command(TARGET ${lib_NAME} POST_BUILD
